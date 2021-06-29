@@ -151,8 +151,8 @@ bigMultiply(int64_t a, int64_t b)
 //
 // As a second step, we show that the sequence is bounded below. Suppose that
 // x[n] = x >= ceil(sqrt(R+1)). Then we have
-//     x + ceil(R / x) > x + R / x .
-// But x >= ceil(sqrt(R+1) > sqrt(R) so x + R / x is decreasing with x. It
+//     x + ceil(R / x) >= x + R / x .
+// But x >= ceil(sqrt(R+1)) > sqrt(R) so x + R / x is increasing with x. It
 // follows that x + R / x is minimized by choosing the smallest permissible x.
 // Applying this logic
 //     x + ceil(R / x) >= x + R / x
@@ -200,7 +200,9 @@ bigMultiply(int64_t a, int64_t b)
 //            <= E[n] / 2^k + (1 + ... + 1/2^k)
 //            <  E[n] / 2^k + 2 .
 // We conclude that the order of convergence is at least linear, although
-// numerical evidence suggests it is of higher order.
+// numerical evidence suggests it is of higher order. The normal Babylonian
+// method has quadratic convergence, so this is perhaps a reasonable
+// conjecture.
 //
 // Now that we have an algorithm to compute ceil(sqrt(R+1)) then we can simply
 // use R-1 instead of R in the definition of the sequence to compute
